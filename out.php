@@ -9,5 +9,8 @@
 </head>
 <body>
     <h1>test</h1>
+    <?php
+    echo $_GET['idToken'];
+    ?>
 </body>
 </html>
