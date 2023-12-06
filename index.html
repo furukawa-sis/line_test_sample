@@ -20,16 +20,17 @@
         const idToken = liff.getIDToken();
         //document.write(idToken['sub']);
         document.write(idToken);
+        // openWindow call
+        liff.openWindow({
+          url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken,
+          external: true,
+        });
     })
     .catch((err) => {
         console.log(err);
     });
 
-    // openWindow call
-    liff.openWindow({
-      url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken,
-      external: true,
-    });
+    
 
 
   </script>
