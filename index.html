@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1>こちらはテストページです。</h1>
-    <input type="button" value="line_api" onclick="exec()"/>
+    <input type="button" value="LINE連携(仮)" onclick="lineExec()"/>
 
     <script>
       function exec(){
@@ -28,6 +28,7 @@
         });
 
         const accessToken = liff.getAccessToken();
+        document.write(accessToken);
       }
         
     </script>
