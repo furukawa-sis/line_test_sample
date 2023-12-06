@@ -1,40 +1,35 @@
-window.onload = function (e) {
-    // init で初期化。基本情報を取得。
-    // https://developers.line.me/ja/reference/liff/#initialize-liff-app
-    liff.init(function (data) {
-        getProfile();
-        initializeApp(data);
-    });
-};
+$(document).ready(function () {
+    // liffId: LIFF URL "https://liff.line.me/xxx"のxxxに該当する箇所
+    // LINE DevelopersのLIFF画面より確認可能
+    var liffId = "(自分のLIFFIDを入力)";
+    initializeLiff(liffId);
+})
 
-// プロファイルの取得と表示
-function getProfile(){
-    // https://developers.line.me/ja/reference/liff/#liffgetprofile()
-    liff.getProfile().then(function (profile) {
-        document.getElementById('useridprofilefield').textContent = profile.userId;
-        document.getElementById('displaynamefield').textContent = profile.displayName;
-
-        var profilePictureDiv = document.getElementById('profilepicturediv');
-        if (profilePictureDiv.firstElementChild) {
-            profilePictureDiv.removeChild(profilePictureDiv.firstElementChild);
-        }
-        var img = document.createElement('img');
-        img.src = profile.pictureUrl;
-        img.alt = "Profile Picture";
-        img.width = 200;
-        profilePictureDiv.appendChild(img);
-
-        document.getElementById('statusmessagefield').textContent = profile.statusMessage;
-    }).catch(function (error) {
-        window.alert("Error getting profile: " + error);
-    });
+function initializeLiff(liffId) {
+    liff
+        .init({
+            liffId: liffId
+        })
+        .then(() => {
+            // Webブラウザからアクセスされた場合は、LINEにログインする
+            if (!liff.isInClient() && !liff.isLoggedIn()) {
+                window.alert("LINEアカウントにログインしてください。");
+                liff.login({redirectUri: location.href});
+            }
+        })
+        .catch((err) => {
+            console.log('LIFF Initialization failed ', err);
+        });
 }
 
-function initializeApp(data) {
-    document.getElementById('languagefield').textContent = data.language;
-    document.getElementById('viewtypefield').textContent = data.context.viewType;
-    document.getElementById('useridfield').textContent = data.context.userId;
-    document.getElementById('utouidfield').textContent = data.context.utouId;
-    document.getElementById('roomidfield').textContent = data.context.roomId;
-    document.getElementById('groupidfield').textContent = data.context.groupId;
+// LINEトーク画面上でメッセージ送信
+function sendMessages(text) {
+    liff.sendMessages([{
+        'type': 'text',
+        'text': text
+    }]).then(function () {
+        liff.closeWindow();
+    }).catch(function (error) {
+        window.alert('Failed to send message ' + error);
+    });
 }
