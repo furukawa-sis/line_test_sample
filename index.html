@@ -7,9 +7,29 @@
   </head>
   <body>
     <h1>こちらはテストページです。</h1>
+    <input type="button" value="line_api" onclick="exec()"/>
 
     <script>
-        console.log('Hello World');
+      function exec(){
+        document.write("あああ");
+      }
+      function lineExec(){
+        // Promiseオブジェクトを使用する方法
+        liff
+        .init({
+          liffId: "123456-abcedfg", // Use own liffId
+        })
+        .then(() => {
+          // Start to use liff's api
+        })
+        .catch((err) => {
+          // Error happens during initialization
+          console.log(err.code, err.message);
+        });
+
+        const accessToken = liff.getAccessToken();
+      }
+        
     </script>
   </body>
 </html>
