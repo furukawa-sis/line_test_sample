@@ -59,6 +59,7 @@
                 var statusCode = this.status;
                 document.write(statusCode);
                 if (this.status == 200){
+                    document.write("true");
 
                     const xhr2 = new XMLHttpRequest();
                     xhr2.open("GET", "https://api.line.me/v2/profile", true);
