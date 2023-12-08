@@ -44,7 +44,7 @@
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "https://api.line.me/oauth2/v2.1/verify", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            var body = 'id_token=' + idtoken + '&client_id=2002036154';
+            const body = 'id_token=' + idtoken + '&client_id=2002036154';
             // const body = JSON.stringify({
             //     id_token: idToken,
             //     client_id: "2002036154",
