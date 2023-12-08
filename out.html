@@ -58,6 +58,18 @@
             xhr.onload = function () {
                 var statusCode = this.status;
                 document.write(statusCode);
+                if (this.status == 200){
+
+                    const xhr2 = new XMLHttpRequest();
+                    xhr2.open("GET", "https://api.line.me/v2/profile", true);
+                    xhr2.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    xhr2.send();
+                    xhr.responseType = "json";
+                    xhr2.onload = function () {
+                        var data = this.response;
+                        document.write(data);
+                    }
+                }
                 // var data = this.response;
                 // document.write(data);
                 // const obj = JSON.parse(data);
