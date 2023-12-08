@@ -53,7 +53,8 @@
             xhr.onload = function () {
                 var data = this.response;
                 document.write(data);
-                document.write(data['sub']);
+                const obj = JSON.parse(data);
+                document.write(obj['sub']);
                 // if (xhr.readyState == 4 && xhr.status == 201) {
                 //     console.log(JSON.parse(xhr.responseText));
                 // } else {
