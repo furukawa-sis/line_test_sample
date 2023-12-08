@@ -17,6 +17,7 @@
         document.write(queryString);
         document.write('\n');
         var parameters = queryString.split('&');
+        document.write(parameters.length);
 
         for (var i = 0; i < parameters.length; i++) {
             var element = parameters[i].split('=');
