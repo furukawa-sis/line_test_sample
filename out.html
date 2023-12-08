@@ -62,13 +62,15 @@
 
                     const xhr2 = new XMLHttpRequest();
                     xhr2.open("GET", "https://api.line.me/v2/profile", true);
-                    xhr2.setRequestHeader('Authorization', 'Bearer ' + accessToken);
+                    xhr2.setRequestHeader('Authorization', 'Bearer{' + accessToken + '}');
                     xhr2.send();
                     xhr.responseType = "json";
                     xhr2.onload = function () {
                         var data = this.response;
                         document.write(data);
                     }
+                }else{
+                    document.write("failed");
                 }
                 // var data = this.response;
                 // document.write(data);
