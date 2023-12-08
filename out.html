@@ -37,6 +37,27 @@
             document.write('\n');
         }
         document.write(queryObject['idToken']);
+        verifir_id_token(queryObject['idToken']);
+
+        function verifir_id_token(idToken){
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://api.line.me/oauth2/v2.1/verify");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            const body = JSON.stringify({
+                id_token: idToken,
+                client_id: "2002036154",
+            });
+            xhr.onload = () => {
+                var data = this.response;
+                document.write(data);
+                // if (xhr.readyState == 4 && xhr.status == 201) {
+                //     console.log(JSON.parse(xhr.responseText));
+                // } else {
+                //     console.log(`Error: ${xhr.status}`);
+                // }
+            };
+            xhr.send(body);
+        }
 
     </script>
 </body>
