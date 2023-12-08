@@ -37,7 +37,10 @@
             document.write('\n');
         }
         document.write(queryObject['idToken']);
-        const body = 'id_token=' + queryObject['idToken'] + '&client_id=2002036154'
+        const body = JSON.stringify({
+                id_token: idToken,
+                client_id: "2002036154",
+            });
         document.write('\n');
         document.write(body);
         verifir_id_token(queryObject['idToken']);
@@ -47,14 +50,14 @@
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "https://api.line.me/oauth2/v2.1/verify", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            const body = 'id_token=' + idtoken + '&client_id=2002036154';
-            // const body = JSON.stringify({
-            //     id_token: idToken,
-            //     client_id: "2002036154",
-            // });
+            //const body = 'id_token=' + idtoken + '&client_id=2002036154';
+            const body = JSON.stringify({
+                id_token: idToken,
+                client_id: "2002036154",
+            });
             xhr.onload = function () {
                 var data = this.response;
-                document.write('id_token=' + idtoken + '&client_id=2002036154');
+                document.write(body);
                 // if (xhr.readyState == 4 && xhr.status == 201) {
                 //     console.log(JSON.parse(xhr.responseText));
                 // } else {
