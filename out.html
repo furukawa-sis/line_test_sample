@@ -37,6 +37,9 @@
             document.write('\n');
         }
         document.write(queryObject['idToken']);
+        const body = 'id_token=' + queryObject['idToken'] + '&client_id=2002036154'
+        document.write('\n');
+        document.write(body);
         verifir_id_token(queryObject['idToken']);
 
 
