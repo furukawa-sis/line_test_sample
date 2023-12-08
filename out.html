@@ -12,13 +12,17 @@
     <script>
         var queryString = window.location.search;
         document.write(queryString);
+        queryString = queryString.slice(1);
+        document.write(queryString);
         var parameters = queryString.split('&');
 
         for (var i = 0; i < parameters.length; i++) {
             var element = parameters[i].split('=');
 
             var paramName = decodeURIComponent(element[0]);
+            document.write(paramName);
             var paramValue = decodeURIComponent(element[1]);
+            document.write(paramValue);
 
             queryObject[paramName] = paramValue;
         }
