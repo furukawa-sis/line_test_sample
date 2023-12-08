@@ -12,8 +12,10 @@
     <script>
         var queryString = window.location.search;
         document.write(queryString);
+        document.write('\n');
         queryString = queryString.slice(1);
         document.write(queryString);
+        document.write('\n');
         var parameters = queryString.split('&');
 
         for (var i = 0; i < parameters.length; i++) {
@@ -21,12 +23,14 @@
 
             var paramName = decodeURIComponent(element[0]);
             document.write(paramName);
+            document.write('\n');
             var paramValue = decodeURIComponent(element[1]);
             document.write(paramValue);
+            document.write('\n');
 
             queryObject[paramName] = paramValue;
         }
-        document.write(queryObject['idToken']);
+        document.write(queryObject[idToken]);
 
     </script>
 </body>
