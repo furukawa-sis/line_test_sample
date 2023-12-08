@@ -17,7 +17,10 @@
         document.write(queryString);
         document.write('\n');
         var parameters = queryString.split('&');
+        document.write(parameters[0]);
+        document.write(parameters[1]);
         document.write(parameters.length);
+        document.write('\n');
 
         for (var i = 0; i < parameters.length; i++) {
             var element = parameters[i].split('=');
@@ -31,7 +34,7 @@
 
             queryObject[paramName] = paramValue;
         }
-        document.write(queryObject[idToken]);
+        document.write(queryObject['idToken']);
 
     </script>
 </body>
