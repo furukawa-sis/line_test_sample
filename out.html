@@ -37,12 +37,7 @@
             document.write('\n');
         }
         document.write(queryObject['idToken']);
-        const body = JSON.stringify({
-                id_token: idToken,
-                client_id: "2002036154",
-            });
-        document.write('\n');
-        document.write(body);
+
         verifir_id_token(queryObject['idToken']);
 
 
