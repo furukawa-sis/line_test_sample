@@ -51,7 +51,6 @@
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "https://api.line.me/oauth2/v2.1/verify?access_token=" + accessToken, true);
             xhr.send();
-            xhr.responseType = "json";
             xhr.onload = function () {
                 var statusCode = this.status;
                 document.write(statusCode);
@@ -74,7 +73,6 @@
             xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
             //xhr2.withCredentials = true;
             xhr.send();
-            xhr.responseType = "json";
             xhr.onload = function () {
                 document.write(this.status);
                 var data = this.response;
