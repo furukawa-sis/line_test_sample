@@ -10,20 +10,16 @@
 <body>
     <h1>test</h1>
     <script>
+        // GETパラメータを取得
         var queryString = window.location.search;
-        document.write(queryString);
-        document.write('\n');
         queryString = queryString.slice(1);
-        document.write(queryString);
-        document.write('\n');
+
+        // &で切り分ける
         var parameters = queryString.split('&');
-        document.write(parameters[0]);
-        document.write(parameters[1]);
-        document.write(parameters.length);
-        document.write('\n');
 
         var queryObject = {};
         for (var i = 0; i < parameters.length; i++) {
+            // nameとvalueで分ける
             var element = parameters[i].split('=');
 
             var paramName = decodeURIComponent(element[0]);
@@ -32,8 +28,10 @@
             queryObject[paramName] = paramValue;
         }
 
+        // idTokenでのプロフィール情報取得
         verifir_id_token(queryObject['idToken']);
 
+        // accessTokenでのプロフィール情報取得(仮)
         //verifir_access_token(queryObject['accessToken']);
 
 

@@ -10,26 +10,32 @@
 
 <body>
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+  <button onclick="line_connect()">LINE ID連携(外部ページ)</button>
+
+
   <script>
-    liff.init({
-    liffId: '2002036154-XaAJJnLO', // Use own liffId
-    })
-    .then(() => {
-        // start to use LIFF's api
-        const idToken = liff.getIDToken();
-        const accessToken = liff.getAccessToken();
-        document.write(idToken);
-        document.write('\n');
-        document.write(accessToken);
-        // openWindow call
-        liff.openWindow({
-          url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken + '&accessToken=' + accessToken,
-          external: true,
-        });
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+    function line_connect(){
+      liff.init({
+      liffId: '2002036154-XaAJJnLO', // Use own liffId
+      })
+      .then(() => {
+          // start to use LIFF's api
+          const idToken = liff.getIDToken();
+          const accessToken = liff.getAccessToken();
+          document.write(idToken);
+          document.write('\n');
+          document.write(accessToken);
+          // openWindow call
+          liff.openWindow({
+            url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken + '&accessToken=' + accessToken,
+            external: false,
+          });
+      })
+      .catch((err) => {
+          console.log(err);
+      });
+    }
 
     
 
