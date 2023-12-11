@@ -12,6 +12,7 @@
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
   <button onclick="line_connect()">LINE ID連携(外部ページ)</button>
+  <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
 
 
   <script>
@@ -29,7 +30,7 @@
           // openWindow call
           liff.openWindow({
             url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken + '&accessToken=' + accessToken,
-            external: false,
+            external: true,
           });
       })
       .catch((err) => {
