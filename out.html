@@ -58,7 +58,6 @@
                 if (this.status == 200){
                     document.write("true");
                     get_profile(accessToken);
-                    
                 }else{
                     document.write("failed");
                 }
@@ -70,7 +69,6 @@
         }
 
         function get_profile(accessToken){
-            document.write("in");
             const xhr = new XMLHttpRequest();
             xhr.open("GET", "https://api.line.me/oauth2/v2.1/userinfo", true);
             xhr.setRequestHeader("Authorization", "Bearer " + accessToken);
@@ -78,10 +76,9 @@
             xhr.send();
             xhr.responseType = "json";
             xhr.onload = function () {
-                document.write(xhr.status);
-                document.write("data");
                 var data = this.response;
-                document.write(data);
+                const obj = JSON.parse(data);
+                document.write(obj);
             }
         }
 
