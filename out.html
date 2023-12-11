@@ -28,10 +28,10 @@
         }
 
         // idTokenでのプロフィール情報取得
-        verifir_id_token(queryObject['idToken']);
+        //verifir_id_token(queryObject['idToken']);
 
         // accessTokenでのプロフィール情報取得(仮)
-        //verifir_access_token(queryObject['accessToken']);
+        verifir_access_token(queryObject['accessToken']);
 
 
         function verifir_id_token(idToken){
@@ -40,7 +40,7 @@
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.onload = function () {
                 var data = this.response;
-                document.write(data);
+                //document.write(data);
                 const obj = JSON.parse(data);
                 document.write(obj['sub']);
             };
@@ -76,6 +76,7 @@
             xhr.send();
             xhr.responseType = "json";
             xhr.onload = function () {
+                document.write(this.status);
                 var data = this.response;
                 document.write(data);
                 const obj = JSON.parse(data);
