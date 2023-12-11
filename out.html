@@ -57,19 +57,8 @@
                 document.write(statusCode);
                 if (this.status == 200){
                     document.write("true");
-
-                    const xhr2 = new XMLHttpRequest();
-                    xhr2.open("POST", "https://api.line.me/oauth2/v2.1/userinfo", true);
-                    xhr2.setRequestHeader('Authorization', 'Bearer {' + accessToken +"}");
-                    xhr2.withCredentials = true;
-                    xhr2.send("access_token=" + accessToken);
-                    xhr2.responseType = "json";
-                    xhr2.onload = function () {
-                        document.write(xhr2.status);
-                        document.write("data");
-                        var data = this.response;
-                        document.write(data);
-                    }
+                    get_profile(accessToken);
+                    
                 }else{
                     document.write("failed");
                 }
@@ -78,7 +67,22 @@
                 // const obj = JSON.parse(data);
                 //document.write(obj['sub']);
             };
-            
+        }
+
+        function get_profile(accessToken){
+            document.write("in");
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://api.line.me/oauth2/v2.1/userinfo", true);
+            xhr.setRequestHeader("Authorization", "Bearer {" + accessToken +"}");
+            //xhr2.withCredentials = true;
+            xhr.send();
+            xhr.responseType = "json";
+            xhr.onload = function () {
+                document.write(xhr.status);
+                document.write("data");
+                var data = this.response;
+                document.write(data);
+            }
         }
 
     </script>
