@@ -8,6 +8,8 @@
     
 </head>
 <body>
+    <h2>LINE ID</h2><br>
+    <p id="lineID_text"></p><br>
     <script>
         // GETパラメータを取得
         var queryString = window.location.search;
@@ -28,10 +30,10 @@
         }
 
         // idTokenでのプロフィール情報取得
-        //verifir_id_token(queryObject['idToken']);
+        verifir_id_token(queryObject['idToken']);
 
         // accessTokenでのプロフィール情報取得(仮)
-        verifir_access_token(queryObject['accessToken']);
+        // verifir_access_token(queryObject['accessToken']);
 
 
         function verifir_id_token(idToken){
@@ -42,7 +44,9 @@
                 var data = this.response;
                 //document.write(data);
                 const obj = JSON.parse(data);
-                document.write(obj['sub']);
+                //document.write(obj['sub']);
+                const lineID_text = document.getElementById('lineID_text');
+                lineID_text.innerHTML = obj['sub'];
             };
             xhr.send("id_token=" + idToken + "&client_id=2002036154");
         }
@@ -70,7 +74,9 @@
                 var data = this.response;
                 //document.write(data);
                 const obj = JSON.parse(data);
-                document.write(obj["sub"]);
+                //document.write(obj["sub"]);
+                const lineID_text = document.getElementById('lineID_text');
+                lineID_text.innerHTML = obj['sub'];
             }
         }
 
