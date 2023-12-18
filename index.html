@@ -5,17 +5,36 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>test</title>
-    
+    <style>
+      body {
+        background: #ffc0cb;
+        text-align: center;
+      }
+      #title_name{
+        color: #008000;
+      }
+      #line_button{
+        width: 300px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #68779a;
+        background: #cbe8fa;
+        cursor: pointer;
+      }
+    </style>
 </head>
 
 <body>
   <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
-  <button onclick="line_connect()">LINE ID連携(外部ページ)</button><br>
-  <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a>
+  <h1 id="title_name">LINE ID 連携画面</h1>
+  <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button><br>
+  <!-- <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a> -->
 
-  <p id="idToken_text">idToken</p><br>
-  <p id="accessToken_text">accessToken</p>
+  <h2>＜IDToken＞</h2><br>
+  <p id="idToken_text"></p><br>
+  <h2>＜accessToken＞</h2><br>
+  <p id="accessToken_text"></p>
 
   <script>
     function line_connect(){
