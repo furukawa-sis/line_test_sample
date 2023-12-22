@@ -21,13 +21,18 @@
         box-sizing: border-box;
         border: 1px solid #77f373;
         background: #77f373;
-        align="center";
         font-size: 20px;
         color: #ffffff;
         cursor: pointer;
       }
       #message{
         color: #454645;
+        text-align: center;
+      }
+      #close_button{
+
+      }
+      #link_message{
         text-align: center;
       }
       .risu{
@@ -51,9 +56,14 @@
     <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button>
   </div>
   <br>
+  <p id="link_message">LINE IDを連携することで、LINEを通して情報をお伝えすることが可能になります。</p>
   <!-- <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a> -->
+  <br>
   <p id="message"></p><br>
-  <input type="button" onclick="window.close();" value="ウィンドウを閉じる">
+  <div class="button">
+    <button id="close_button" onclick="window.close();" value="ウィンドウを閉じる"></button>
+  </div>
+  
 
   <!-- <h3>IDToken</h3><br>
   <p id="idToken_text"></p><br>
