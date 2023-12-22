@@ -14,13 +14,16 @@
         color: #008000;
       }
       #line_button{
-        width: 300px;
+        width: 400px;
         padding: 10px;
         box-sizing: border-box;
         border: 1px solid #77f373;
         background: #77f373;
         color: #ffffff;
         cursor: pointer;
+      }
+      #message{
+        color: #454645;
       }
     </style>
 </head>
@@ -30,6 +33,7 @@
   <h1 id="title_name">LINE ID 連携画面</h1>
   <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button><br>
   <!-- <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a> -->
+  <p id="message"></p><br>
 
   <h3>IDToken</h3><br>
   <p id="idToken_text"></p><br>

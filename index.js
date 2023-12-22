@@ -12,6 +12,9 @@ function line_connect(){
         const accessToken_text = document.getElementById('accessToken_text');
         accessToken_text.innerHTML = accessToken;
 
+        const message_text = document.getElementById('message');
+        message_text.innerHTML = "ID連携画面へ遷移しました";
+
         // openWindow call
         liff.openWindow({
           url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken + '&accessToken=' + accessToken,
