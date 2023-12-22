@@ -21,7 +21,7 @@
         box-sizing: border-box;
         border: 1px solid #77f373;
         background: #77f373;
-        text-align: center;
+        align="center";
         font-size: 20px;
         color: #ffffff;
         cursor: pointer;
@@ -30,8 +30,11 @@
         color: #454645;
         text-align: center;
       }
-      #risu{
+      .risu{
         text-align: right;
+      }
+      .button{
+        text-align: center;
       }
     </style>
 </head>
@@ -44,7 +47,10 @@
   </header>
 
   <h1 id="title_name">LINE ID 連携画面</h1>
-  <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button><br>
+  <div class="button">
+    <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button>
+  </div>
+  <br>
   <!-- <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a> -->
   <p id="message"></p><br>
 
