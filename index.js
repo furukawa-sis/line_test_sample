@@ -7,10 +7,10 @@ function line_connect(){
         const idToken = liff.getIDToken();
         const accessToken = liff.getAccessToken();
 
-        const idToken_text = document.getElementById('idToken_text');
-        idToken_text.innerHTML = idToken;
-        const accessToken_text = document.getElementById('accessToken_text');
-        accessToken_text.innerHTML = accessToken;
+        // const idToken_text = document.getElementById('idToken_text');
+        // idToken_text.innerHTML = idToken;
+        // const accessToken_text = document.getElementById('accessToken_text');
+        // accessToken_text.innerHTML = accessToken;
 
         const message_text = document.getElementById('message');
         message_text.innerHTML = "ID連携画面へ遷移しました";
