@@ -17,17 +17,16 @@
         width: 300px;
         padding: 10px;
         box-sizing: border-box;
-        border: 1px solid #ffffff;
-        background: #ffffff;
-        color: #008000;
+        border: 1px solid #77f373;
+        background: #77f373;
+        color: #ffffff;
         cursor: pointer;
       }
     </style>
 </head>
 
 <body>
-  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-
+  
   <h1 id="title_name">LINE ID 連携画面</h1>
   <button id="line_button" onclick="line_connect()">LINE ID連携(外部ページへ)</button><br>
   <!-- <a href="https://lin.ee/qlp1hqS"><img src="https://scdn.line-apps.com/n/line_add_friends/btn/ja.png" alt="友だち追加" height="36" border="0"></a> -->
@@ -37,7 +36,9 @@
   <h3>accessToken</h3><br>
   <p id="accessToken_text"></p>
 
-  <script>
+  <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="index.js"></script>
+  <!-- <script>
     function line_connect(){
       liff.init({
       liffId: '2002036154-XaAJJnLO', // Use own liffId
@@ -66,7 +67,7 @@
     
 
 
-  </script>
+  </script> -->
 </body>
 
 </html>

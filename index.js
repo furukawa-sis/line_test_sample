@@ -1,3 +1,27 @@
+function line_connect(){
+    liff.init({
+    liffId: '2002036154-XaAJJnLO', // Use own liffId
+    })
+    .then(() => {
+        // start to use LIFF's api
+        const idToken = liff.getIDToken();
+        const accessToken = liff.getAccessToken();
+
+        const idToken_text = document.getElementById('idToken_text');
+        idToken_text.innerHTML = idToken;
+        const accessToken_text = document.getElementById('accessToken_text');
+        accessToken_text.innerHTML = accessToken;
+
+        // openWindow call
+        liff.openWindow({
+          url: 'https://furukawa-sis.github.io/line_test_sample/out.html?idToken=' + idToken + '&accessToken=' + accessToken,
+          external: true,
+        });
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
 
 function verifir_id_token(idToken){
     const xhr = new XMLHttpRequest();
